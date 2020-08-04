@@ -1,0 +1,10 @@
+仮想環境venv フォルダの作成
+$ python3 -m venv venv 
+
+anacondaの仮想環境から抜け出す
+$ conda deactivate
+
+venvフォルダの仮想環境に適応する
+$ . venv/bin/activate 
+
+
