@@ -11,7 +11,6 @@ def hello(name="not"):
     return render_template('hello.html', name=name)
 
 
-
 # $ python app.pyで起動する
 # if __name__ == "__main__":
 #     app.run(debug=True, threaded=True)
