@@ -10,4 +10,6 @@ $ . venv/bin/activate
 どのファイルを有効化するか
 $ export FLASK_APP=hello.py
 
+git キャッシュ削除
+$ git rm -r --cached .  
 
