@@ -9,6 +9,11 @@ $ . venv/bin/activate
 
 どのファイルを有効化するか
 $ export FLASK_APP=hello.py
+$ export FLASK_APP=flaskr   (__init__.pyがあるフォルダ/設定している)
+
+開発者モード
+Flaskを実行させたままにしながら、ブラウザのページを再読み込みするだけで済むようにします。
+$ export FLASK_ENV=development
 
 git キャッシュ削除
 $ git rm -r --cached .  
