@@ -18,3 +18,4 @@ $ export FLASK_ENV=development
 git キャッシュ削除
 $ git rm -r --cached .  
 
+
