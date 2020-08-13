@@ -18,4 +18,7 @@ $ export FLASK_ENV=development
 git キャッシュ削除
 $ git rm -r --cached .  
 
-
+scheme.sqlを実行する
+instance/flaskr.sqliteを作成する
+@click.command('init-db')
+$ flask init-db
