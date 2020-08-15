@@ -22,3 +22,9 @@ scheme.sqlを実行する
 instance/flaskr.sqliteを作成する
 @click.command('init-db')
 $ flask init-db
+
+
+$ pip list
+
+いまのディレクトリからsetup.pyを見つけ出し、それを編集可能（editable）または開発（development）モードでインストールするように伝えます。
+$ pip install -e .
