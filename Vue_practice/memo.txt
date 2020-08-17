@@ -1,0 +1,8 @@
+classやidを変更できる！
+v-vind
+
+true,falseで表示/非表示にする
+v-if
+
+todo.textなどでループ表示
+v-for="todo in todos"
