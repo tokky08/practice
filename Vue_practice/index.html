@@ -25,6 +25,8 @@
 
     <div id="app-4">
         <ol>
+            <input v-model="newTodo">
+            <button v-on:click="add">追加</button>
             <li v-for="todo in todos">
             {{ todo.text }}
             </li>
@@ -91,6 +93,11 @@
             { text: 'Build something awesome' },
             { text: 'tokky08!!!!' },
             ]
+        },
+        methods:{
+            add: function(){
+                this.todos.push({ text: this.newTodo },)
+            }
         }
     })
 
