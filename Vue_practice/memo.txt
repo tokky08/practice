@@ -6,3 +6,14 @@ v-if
 
 todo.textなどでループ表示
 v-for="todo in todos"
+
+
+v-on:click="reverseMessage"
+methods: {
+            reverseMessage: function () {
+                this.message = this.message.split('').reverse().join('')
+            }
+        }
+
+inputの場合v-modelにすれば追従してくれる
+v-model
