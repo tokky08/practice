@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="vue1">
+        <span v-once>{{msg}}</span>
+        <span>{{msg}}</span>
+        <p>Using mustaches: {{ rawHtml }}</p>
+        <p>Using v-html directive: <span v-html="rawHtml"></span></p>
+        <button v-bind:disabled="someBool">押してください</button>
+    </div>
+</body>
+<script>
+// データオブジェクト
+var data_ = { a: 1 }
+
+// Vue インスタンスにオブジェクトを追加する
+var vm = new Vue({
+    el: "#vue1",
+    data: {
+        rawHtml: '<div style="color:red">こんにちは</div>',
+        someBool: true
+    }
+})
+</script>
+</html>

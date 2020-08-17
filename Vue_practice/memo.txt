@@ -17,3 +17,11 @@ methods: {
 
 inputの場合v-modelにすれば追従してくれる
 v-model
+
+データを後から追加することはできない！
+初期値を書いておく！
+リアクティブにするなら最初から登録する必要がある。用意する必要がある。
+
+
+<span v-html="rawHtml"></span>
+rawHtml: '<div style="color:red">こんにちは</div>'
