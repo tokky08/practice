@@ -10,10 +10,10 @@ v-for="todo in todos"
 
 v-on:click="reverseMessage"
 methods: {
-            reverseMessage: function () {
-                this.message = this.message.split('').reverse().join('')
-            }
-        }
+    reverseMessage: function () {
+        this.message = this.message.split('').reverse().join('')
+    }
+}
 
 inputの場合v-modelにすれば追従してくれる
 v-model
@@ -25,3 +25,6 @@ v-model
 
 <span v-html="rawHtml"></span>
 rawHtml: '<div style="color:red">こんにちは</div>'
+
+書き変わらない。固定
+v-once

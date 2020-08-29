@@ -10,9 +10,11 @@
     <div id="vue1">
         <span v-once>{{msg}}</span>
         <span>{{msg}}</span>
-        <p>Using mustaches: {{ rawHtml }}</p>
+        <p v-bind:id="myId">Using mustaches: {{ rawHtml }}</p>
         <p>Using v-html directive: <span v-html="rawHtml"></span></p>
         <button v-bind:disabled="someBool">押してください</button>
+        <p v-if="seen">Now you see me</p>
+        <a v-bind:[atribute]="url"> ... </a>
     </div>
 </body>
 <script>
@@ -23,8 +25,13 @@ var data_ = { a: 1 }
 var vm = new Vue({
     el: "#vue1",
     data: {
+        msg: "こんにちは！",
         rawHtml: '<div style="color:red">こんにちは</div>',
-        someBool: true
+        someBool: true,
+        myId: "pId_01",
+        seen: false,
+        url: "sample",
+        atribute: "href"
     }
 })
 </script>
