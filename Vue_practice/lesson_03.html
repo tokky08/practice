@@ -14,6 +14,11 @@
         <p>{{ now }}</p>
         <p>{{ now_() }}</p>
         <p>{{ fullName }}</p>
+        <input type="text" v-model="year">
+        <input type="text" v-model="month">
+        <input type="text" v-model="day">
+        <p>あなたの年齢は{{age}}歳です。</p>
+        <p>あなたが生まれたのは{{week}}曜日です。</p>
     </div>
 </body>
 <script>
@@ -26,9 +31,19 @@ var vm = new Vue({
         data: {
         message: 'Hello',
         firstName: 'Foo',
-        lastName: 'Bar'
+        lastName: 'Bar',
+
+        year: 1998,
+        month: 6,
+        day: 13
     },
     computed: {
+        age: function(){
+            return Number(new Date().getFullYear()) - Number(this.year)
+        },
+        week: function(){
+            return "月"
+        },
         // 算出 getter 関数
         reversedMessage: function () {
         // `this` は vm インスタンスを指します
@@ -37,8 +52,20 @@ var vm = new Vue({
         now: function () {
             return Date.now()
         },
-        fullName: function () {
-            return this.firstName + ' ' + this.lastName
+        //fullName: function () {
+        //   return this.firstName + ' ' + this.lastName
+        //},
+        fullName: {
+            // getter 関数
+            get: function () {
+                return this.firstName + ' ' + this.lastName
+            },
+            // setter 関数
+            set: function (newValue) {
+                var names = newValue.split(' ')
+                this.firstName = names[0]
+                this.lastName = names[names.length - 1]
+            }
         }
     },
     methods: {
