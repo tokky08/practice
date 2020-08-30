@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <style>
+        .active{
+            color: red;
+        }
+        .text-danger{
+            background-color: green;
+        }
+    </style>
+</head>
+<body>
+    <div id="example">
+        <!--<div v-bind:class="{ 'active': isActive, 'text-danger': hasError }">テキスト</div>-->
+        <div v-bind:class="classObject_01">classObject</div>
+        <div v-bind:style="{ color: activeColor, fontSize: fontSize + 'px' }">style</div>
+        <h1 v-if="awesome">Vue is awesome!</h1>
+        <h1 v-else>Oh no 😢</h1>
+        <template v-if="ok">
+            <h1>Title</h1>
+            <p>Paragraph 1</p>
+            <p>Paragraph 2</p>
+        </template>
+
+
+        <div v-if="type === 'A'">
+            A
+        </div>
+        <div v-else-if="type === 'B'">
+            B
+        </div>
+        <div v-else-if="type === 'C'">
+            C
+        </div>
+        <div v-else>
+            Not A/B/C
+        </div>
+    </div>
+</body>
+<script>
+// データオブジェクト
+var data_ = { a: 1 }
+
+// Vue インスタンスにオブジェクトを追加する
+var vm = new Vue({
+    el: '#example',
+    data: {
+        isActive: true,
+        hasError: false,
+        activeColor: "red",
+        fontSize: 100,
+        awesome: true,
+        ok: true,
+        type: "A",
+        classObject_01:{
+            'active': true,
+            'text-danger': true
+        }
+    },
+    //computed: {
+    //    classObject: function () {
+    //        return {
+    //            active: this.isActive && !this.error,
+    //           'text-danger': this.error && this.error.type === 'fatal'
+    //        }
+    //    }
+    //}
+})
+</script>
+</html>
