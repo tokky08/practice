@@ -28,3 +28,10 @@ rawHtml: '<div style="color:red">こんにちは</div>'
 
 書き変わらない。固定
 v-once
+
+同じ
+v-bind:class="test"
+:class="test"
+同じ
+v-on:click="add"
+@:click="add

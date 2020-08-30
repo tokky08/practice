@@ -51,6 +51,18 @@
     <ul id="example-4">
         <li v-for="n in evenNumbers">{{ n }}</li>
     </ul>
+
+    <div id="example-01">
+        <button v-on:click="add">Add 1</button>
+        <p>The button above has been clicked {{ counter }} times.</p>
+        <input v-on:keyup.enter="add">
+        <p>The button above has been clicked {{ counter }} times.</p>
+    </div>
+
+    <div id="example-03">
+        <button v-on:click="say('hi')">Say hi</button>
+        <button v-on:click="say('what')">Say what</button>
+    </div>
 </body>
 <script>
 var vm = new Vue({
@@ -116,6 +128,28 @@ var example4 = new Vue({
             })
         }
     }
+})
+
+var example01 = new Vue({
+  el: '#example-01',
+  data: {
+    counter: 0
+  },
+  methods:{
+      add: function(){
+          this.counter = this.counter + 1
+          return this.counter
+      }
+  }
+})
+
+new Vue({
+  el: '#example-03',
+  methods: {
+    say: function (message) {
+      alert(message)
+    }
+  }
 })
 </script>
 </html>
