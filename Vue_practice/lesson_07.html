@@ -6,20 +6,48 @@
     <title>Document</title>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <style>
-        .active{
-            color: red;
-        }
-        .text-danger{
-            background-color: green;
-        }
     </style>
 </head>
 <body>
   
+  <div id="vue1">
+    <button-counters></button-counters>
+
+    <blog-post v-for="prop in post" v-bind:post="prop"></blog-post>
+
+  </div>
     
 </body>
 <script>
 
+Vue.component('button-counter', {
+  data: function () {
+    return {
+      count: 0
+    }
+  },
+  template: '<div><p>ボタンカウンター</p><button v-on:click="count++">You clicked me {{ count }} times.</button></div>'
+})
+
+Vue.component("button-counters", {
+  template: "<div><button-counter></button-counter><button-counter></button-counter><button-counter></button-counter></div>"
+})
+
+Vue.component('blog-post', {
+  props: ["post"],
+  template: '<div><h3>{{ post.title }}--{{ post.id }}</h3></div>'
+})
+
+var app = new Vue({
+    el: '#vue1',
+    data: {
+      post: [
+        { id: 1, title: 'My journey with Vue' },
+        { id: 2, title: 'Blogging with Vue' },
+        { id: 3, title: 'Why Vue is so fun' }
+      ],
+    }
+})
 
 </script>
 </html>
