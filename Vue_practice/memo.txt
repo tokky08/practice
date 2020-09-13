@@ -1,3 +1,9 @@
+$ npm uninstall -g vue-cli
+$ npm install -g @vue/cli
+$ vue create my-project
+$ npm run serve
+
+
 classやidを変更できる！
 v-vind
 
