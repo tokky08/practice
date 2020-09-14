@@ -1,7 +1,9 @@
 $ npm uninstall -g vue-cli
 $ npm install -g @vue/cli
 $ vue create my-project
+$ vue add vuetify
 $ npm run serve
+
 
 
 classやidを変更できる！
