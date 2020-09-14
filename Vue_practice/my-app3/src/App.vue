@@ -8,6 +8,9 @@
     <p v-else>no text</p>
     <input type="text" v-model="msg">
     <button v-on:click="clear()">clear</button>
+    <!-- <router-link to="/page1">ページ１へ</router-link>
+    <router-link to="/page2">ページ２へ</router-link> -->
+    <router-view></router-view>
   </div>
 </template>
 
