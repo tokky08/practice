@@ -5,7 +5,6 @@ $ vue add vuetify
 $ npm run serve
 
 
-
 classやidを変更できる！
 v-vind
 
