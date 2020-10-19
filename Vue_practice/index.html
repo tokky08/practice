@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/@mdi/font@3.x/css/materialdesignicons.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui"></head>
+
+<body>
+    <div id="app">
+
+
+    <!-- ここから -->
+
+    <v-app>
+
+        <v-app-bar></v-app-bar>
+        <v-card
+            elevation="2"
+        ></v-card>
+
+    <!--
+        <v-navigation-drawer app></v-navigation-drawer>
+
+        <v-toolbar></v-toolbar>
+
+        <v-content>
+            <v-container fluid>
+
+                <h1 class="display-3">GYU-DON</h1>
+
+                <div class="display-1">{{message}}</div>
+
+                <v-chip close v-model="chip1" @click="onChipClick" @input="onClose">
+                    <v-avatar>
+                    <img src="https://randomuser.me/api/portraits/men/35.jpg" alt="trevor">
+                    </v-avatar>
+                    GYUDON MAN
+                </v-chip>
+
+            </v-container>
+        </v-content>
+
+        <v-footer app>hoge</v-footer>
+-->
+    </v-app>
+
+    <!-- ここまで！ -->
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
+    <script>
+        new Vue({
+            el: '#app',
+            vuetify: new Vuetify(),
+            data: {
+                message: "this is the best of food.",
+                chip1: true
+            },
+            methods: {
+                onChipClick: function(ev) {
+                    this.message = "YOSHINOYA is better.";
+                },
+                onClose: function(ev) {
+                    this.message = "good night.";
+                }
+            }
+        });
+    </script>
+
+</body>
+</html>
