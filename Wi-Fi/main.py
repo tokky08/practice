@@ -1,6 +1,7 @@
 import subprocess
 import re
 
+
 class WiFiUtil:
     """Wi-Fi関連ユーティリティ
     """
