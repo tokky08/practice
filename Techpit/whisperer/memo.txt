@@ -1,0 +1,29 @@
+プロジェクトフォルダ作成
+$ vue create アプリケーション名
+
+Manually select features
+・ Router
+・CSS Pre-processors
+Stylus
+
+サーバー起動
+$ npm run serve
+
+
+Font Awesome
+https://fontawesome.com/how-to-use/on-the-web/using-with/vuejs
+
+$ npm i --save @fortawesome/fontawesome-svg-core
+$ npm i --save @fortawesome/free-solid-svg-icons
+$ npm i --save @fortawesome/vue-fontawesome
+
+Vue.jsアプリとFirebaseを連携させるためのコマンド
+$ npm install firebase vuefire@next --save
+
+import { firestorePlugin } from 'vuefire' 
+↑するのにエラーでて，解決するためのコマンド
+$ npm install --save @vue/composition-api
+
+リストの順序指定、絞り込みなどを行う際のプラグイン
+$ npm install vue2-filters --save
+
