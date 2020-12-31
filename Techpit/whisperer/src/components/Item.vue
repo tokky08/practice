@@ -32,8 +32,9 @@ export default {
       whisper: db.collection('whispers').doc(this.$props.id),
       user: db.collection('users').doc(this.$props.uid)
     }
-  }
+  },
 }
+
 </script>
 <!-- ここまで追加 -->
 

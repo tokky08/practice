@@ -20,6 +20,7 @@ import { db } from '../main'
 import Vue2Filters from 'vue2-filters'
 
 console.log(process.env.VUE_APP_ENV_VARIABLE)
+// console.log(db.collection('whispers'))
 
 export default {
   name: 'Home',
@@ -41,6 +42,8 @@ export default {
   },
   mixins: [Vue2Filters.mixin] 
 }
+// console.log(db.collection("users"))
+// console.log(db.collection("whispers"))
 </script>
 
 <style lang="stylus" scoped>
