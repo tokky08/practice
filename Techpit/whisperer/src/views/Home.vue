@@ -2,18 +2,12 @@
   <div class="home">
     <!-- ここから追加 -->
     <div class="list">
-      <li v-for="whisper in orderBy(whispers,'date',-1)" :key="whisper.id" class="item">
-        <div class="user-box">
-          <div 
-            class="avatar"
-            :style="'background-image: url('+url+')'"
-          >
-          </div>
-            <p class="user-name">{{whisper.uid}}</p>
-        </div>
-        <div class="content" v-html="whisper.content">
-        </div>
-      </li>
+      <Item 
+        v-for="whisper in orderBy(whispers,'date',-1)"
+        :key="whisper.id"
+        :id="whisper.id"
+        :uid="whisper.uid" 
+      />
     </div>
     <!-- ここまで追加 -->  
   </div>
@@ -21,8 +15,11 @@
 
 <script>
 // @ is an alias to /src
+import Item from '@/components/Item.vue' 
 import { db } from '../main' 
 import Vue2Filters from 'vue2-filters'
+
+console.log(process.env.VUE_APP_ENV_VARIABLE)
 
 export default {
   name: 'Home',
@@ -40,6 +37,7 @@ export default {
   },
   //ここまで追加
   components: {
+    Item
   },
   mixins: [Vue2Filters.mixin] 
 }
