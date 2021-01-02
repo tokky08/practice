@@ -27,3 +27,22 @@ $ npm install --save @vue/composition-api
 リストの順序指定、絞り込みなどを行う際のプラグイン
 $ npm install vue2-filters --save
 
+デプロイ用のフォルダ作成
+$ npm run build
+
+Firebase CLIというツールをインストール
+$ npm install -g firebase-tools
+
+firebaseにログイン
+$ firebase login
+
+プロジェクト初期化
+$ firebase init
+どのサービスを使用するか：Hostingのみ選択
+どのFirebaseプロジェクトに接続させるか：自分が作成したFirebaseプロジェクトを選択
+公開ルートディレクトリはどれにするか：dist
+シングルページアプリケーションとして設定するか：Yes
+index.htmlを上書きするか：No（必ずNoを選んでください!!)
+
+デプロイ
+$ firebase deploy

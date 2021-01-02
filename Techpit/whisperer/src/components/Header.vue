@@ -4,11 +4,23 @@
     <router-link to="/">
       <h1>whisp.</h1>
     </router-link>
-    <div class="btns">
-      <button @click="signIn">
-        <fa icon="user" />
+    <!-- ここから追加 -->
+    <div v-if="Object.keys(currentUser).length" class="btns">
+      <p>v-if</p>
+      <p>{{currentUser.uid}}</p>
+      <router-link :to="'/user/'+currentUser.uid">
+        <button :style="'background-image: url('+currentUser.photoURL+')'"></button>
+      </router-link>
+      <button>
+        <fa icon="sign-out-alt" @click="signOut" />
       </button>
     </div>
+    <div v-else class="btns">
+      <button>
+        <fa icon="user" @click="signIn" />
+      </button>
+    </div>
+    <!-- ここまで追加 -->
   </header>
 </template>
 
@@ -16,29 +28,55 @@
 <script>
 import firebase from 'firebase'
 import { auth } from '../main'
+import { db } from '../main'
 
 export default {
+  // ここから追加
+  data () {
+    return {
+      currentUser: {}
+    }
+  },
+  created () {
+    alert('Hello, '+JSON.stringify(this.currentUser)+'!')
+    auth.onAuthStateChanged(user => {
+      this.currentUser = user
+      // alert('Hello, '+this.currentUser+'!')
+    })
+  },
+　// ここまで追加
+
   // ここから追加
   methods: {
     signIn () {
       const provider = new firebase.auth.GoogleAuthProvider()
       auth.signInWithPopup(provider)
       .then((result) => {
+        this.$router.push('/user/'+result.user.uid) 
         alert('Hello, '+result.user.displayName+'!')
+        this.createUser(result.user)
       })
+    },
+    createUser (user) {
+      db.collection('users').doc(user.uid).set({
+        'name': user.displayName,
+        'photoURL': user.photoURL,
+        'email':user.email
+      }, { merge: true })
     },
     signOut () {
       if (window.confirm('Are You Sure to Sign Out?')) {
         auth.signOut()
         .then(() => {
           alert('You Safely Signed Out.')
-          this.$router.push('/'),
+          this.$router.push('/')
           location.reload()
         })
       }
     }
   }
   // ここまで追加
+
 }
 </script>
 <!-- ここまで追加 -->
