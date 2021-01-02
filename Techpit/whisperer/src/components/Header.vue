@@ -5,7 +5,7 @@
       <h1>whisp.</h1>
     </router-link>
     <!-- ここから追加 -->
-    <div v-if="Object.keys(currentUser).length" class="btns">
+    <div v-if="currentUser" class="btns">
       <p>v-if</p>
       <p>{{currentUser.uid}}</p>
       <router-link :to="'/user/'+currentUser.uid">
