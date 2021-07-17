@@ -8,7 +8,7 @@ API_KEY = api.key
 def print_video_comment(video_id, n):
     params = {
         'key': API_KEY,
-        'part': 'snippet',
+        'part': 'snippet,replies',
         'videoId': video_id,
         'order': 'relevance',
         'textFormat': 'plaintext',
@@ -17,10 +17,8 @@ def print_video_comment(video_id, n):
     response = requests.get(URL + 'commentThreads', params=params)
     resource = response.json()
 
-    # print(resource["items"])
-
-    # print(type(resource["items"]))
-    # print(len(resource["items"]))
+    # data = json.loads(resource)
+    # print(json.dumps(resource, indent=2))
 
     for comment_info in resource['items']:
         # コメント
@@ -29,9 +27,16 @@ def print_video_comment(video_id, n):
         like_cnt = comment_info['snippet']['topLevelComment']['snippet']['likeCount']
         # 返信数
         reply_cnt = comment_info['snippet']['totalReplyCount']
-
         print('{}\nグッド数: {} 返信数: {}\n'.format(text, like_cnt, reply_cnt))
+        if reply_cnt > 0:
+            reply_comments = comment_info['replies']['comments']
+            for reply in reply_comments:
+                reply_comment = reply['snippet']['textDisplay']
+                print("返信：{}\n".format(reply_comment))
 
-video_id = 'lxQsLOFHniw'
-n = 100
+
+        # print('{}\nグッド数: {} 返信数: {}\n'.format(text, like_cnt, reply_cnt))
+
+video_id = 'yb1WdWNkpUk'
+n = 100000
 print_video_comment(video_id, n)
