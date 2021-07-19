@@ -2,3 +2,6 @@
 https://qiita.com/kerochelo/items/055781400367ef210266
 
 docker-compose run --rm react sh -c "npm install -g create-react-app && create-react-app workplace"
+npm install @material-ui/core
+npm install @material-ui/icons
+yarn add -D node-sass 
